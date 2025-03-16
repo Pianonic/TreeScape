@@ -1,0 +1,67 @@
+<div *ngIf="systemebene" class="container scrollable-container">
+    <div class="node systemebene-projekt-node">
+        <h1>{{ systemebene.projekt.id }}</h1>
+        <h1>{{ systemebene.projekt.name }}</h1>
+    </div>
+    <div class="connection-line">
+        <div></div>
+        <div class="center"></div>
+    </div>
+    <div class="teilprojekte-container">
+        <div *ngFor="let teilprojekt of systemebene.projekt.teilprojekte; let projIndex = index"
+            class="teilprojekte-node">
+            <div class="connection-line" [ngClass]="{
+                'left': projIndex === 0, 
+                'right': projIndex === systemebene.projekt.teilprojekte.length - 1, 
+                'middle': projIndex > 0 && projIndex < systemebene.projekt.teilprojekte.length - 1
+            }">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+            <div class="centered-node-container">
+                <div class="node teilprojekt-name-node">
+                    <h3>{{ teilprojekt.id }}</h3>
+                    <h3>{{ teilprojekt.name }}</h3>
+                </div>
+                <div class="connection-line">
+                    <div></div>
+                    <div class="center"></div>
+                </div>
+            </div>
+
+            <div class="teilaufgaben-container">
+                <div *ngFor="let teilaufgabe of teilprojekt.teilaufgaben; let teilaufIndex = index" class="teilaufgabe">
+                    <div class="connection-line" [ngClass]="{
+                        'left': teilaufIndex === 0, 
+                        'right': teilaufIndex === teilprojekt.teilaufgaben.length - 1, 
+                        'middle': teilaufIndex > 0 && teilaufIndex < teilprojekt.teilaufgaben.length - 1
+                    }">
+                        <div class="left"></div>
+                        <div class="right"></div>
+                    </div>
+                    <div class="node margin-left-right teilaufgabe-name-node">
+                        <h4>{{ teilaufgabe.id }}</h4>
+                        <h4>{{ teilaufgabe.name }}</h4>
+                    </div>
+                    <div class="arbeitspakete-container">
+                        <div *ngFor="let arbeitspaket of teilaufgabe.arbeitspakete; let arbeitspakIndex = index" class="arbeitspaket">
+                            <div class="left-line-spacer"  [ngClass]="{
+                                'others': arbeitspakIndex < teilaufgabe.arbeitspakete.length - 1, 
+                                'bottom': arbeitspakIndex === teilaufgabe.arbeitspakete.length - 1 || teilaufgabe.arbeitspakete.length === 1, 
+                            }">
+                                <div class="first-container">
+                                    <div class="draw-line"></div>
+                                    <div class="draw-maby-line"></div>
+                                </div>
+                            </div>
+                            <div class="node margin-top arbeitspaket-name-node">
+                                <p>{{ arbeitspaket.id }}</p>
+                                <p>{{ arbeitspaket.name }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

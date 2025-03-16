@@ -1,0 +1,212 @@
+.scrollable-container {
+    width: 5500px;
+}
+
+
+.node h1,
+.node h3,
+.node h4,
+.node p {
+    margin: 0; /* Removes all margins */
+    padding: 0; /* Ensures no extra space */
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.connection-line {
+    display: flex;
+
+    .center{
+        border-left: 1px solid black;
+        height: 5px;
+        width: 50%;
+    }
+}
+
+.connection-line.left {
+    .left{
+        width: 50%;
+    }
+    .right{
+        border-left: 1px solid black;
+        border-top: 1px solid black;
+        height: 5px;
+        width: 50%;
+    }
+}
+
+.connection-line.right {
+    .left{
+        border-right: 1px solid black;
+        border-top: 1px solid black;
+        height: 5px;
+        width: 50%;
+    }
+}
+
+.connection-line.middle {
+    .right{
+        border-top: 1px solid black;
+        height: 5px;
+        width: 50%;
+    }
+    .left{
+        border-right: 1px solid black;
+        border-top: 1px solid black;
+        height: 5px;
+        width: 50%;
+    }
+}
+
+.node{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+    min-height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 150px;
+}
+
+.systemebene-projekt-node{
+    width: auto;
+    background-color: #191b53;
+    border: 2px solid #374352;
+    color: white;
+}
+
+.teilprojekt-name-node{
+    width: 180px;
+    height: 65px;
+    background-color: #8e2029;
+    border: 2px solid #601208;
+    color: white;
+}
+
+.teilaufgabe-name-node{
+    width: 180px;
+    height: 65px;
+    background-color: #738567;
+    border: 2px solid #415335;
+    color: white;
+}
+
+.arbeitspaket-name-node{
+    width: 180px;
+    min-height: 90px;
+    background-color: #5d53f5;
+    border: 2px solid #3f39a8;
+    color: white;
+}
+
+.margin-top{
+    margin-top: 10px;
+}
+
+.margin-left-right{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.teilprojekte-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.centered-node-container {
+    display: flex;
+    flex-direction: column; /* Ensures elements are stacked vertically */
+    align-items: center; /* Centers content horizontally */
+    position: relative;
+}
+
+.start-node-container{
+    display: flex;
+}
+
+.teilprojekte-node{
+    display: flex;
+    flex-direction: column;
+}
+
+.teilaufgaben-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.arbeitspakete-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.arbeitspaket{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+
+//spacer
+.left-line-spacer.others{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    .first-container{
+        display: flex;
+        flex-direction: column;
+
+        .draw-line{
+            border-left: 1px solid black;
+            border-bottom: 1px solid black;
+            height: 23px;
+            width: 10px;
+        }
+
+        .draw-maby-line{
+            border-left: 1px solid black;
+            height: 85px;
+            width: 10px;   
+        }
+    }
+}
+
+.left-line-spacer.bottom{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    .first-container{
+        display: flex;
+        flex-direction: column;
+
+        .draw-line{
+            border-left: 1px solid black;
+            border-bottom: 1px solid black;
+            height: 23px;
+            width: 10px;
+        }
+    }
+}
+
+.connection-line.left {
+    .left{
+        width: 50%;
+    }
+    .right{
+        border-left: 1px solid black;
+        border-top: 1px solid black;
+        height: 5px;
+        width: 50%;
+    }
+}
+
+
+
+
+
