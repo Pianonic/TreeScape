@@ -4,6 +4,7 @@ import { Systemebene } from '../models/Systemebene';
 import { HttpClient } from '@angular/common/http';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';  // Import Title service
 
 @Component({
   selector: 'app-diagramm',
@@ -19,7 +20,8 @@ export class DiagrammComponent implements OnInit {
     private xmlParserService: XmlParserService,
     private httpClient: HttpClient,
     private route: ActivatedRoute,
-    private router: Router // Router hinzufügen
+    private router: Router,
+    private titleService: Title // Inject Title service
   ) {}
 
   ngOnInit(): void {
@@ -38,7 +40,10 @@ export class DiagrammComponent implements OnInit {
           this.xmlParserService.parseXml(xmlString).subscribe({
             next: (data) => {
               this.systemebene = data;
-              //console.log(data);
+              // Dynamically set the title of the page based on systemebene.projekt.name
+              if (this.systemebene?.projekt?.name) {
+                this.titleService.setTitle(this.systemebene.projekt.name);
+              }
             },
             error: (err) => {
               console.error('Fehler beim Parsen:', err);
